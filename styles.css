@@ -935,6 +935,7 @@ body {
     font-size: 1rem;
     color: #fff;
     flex-shrink: 0;
+    overflow: hidden;
 }
 
 .yt-channel-info {
@@ -966,6 +967,13 @@ body {
     display: flex;
     flex-direction: column;
     gap: 8px;
+    text-decoration: none;
+    color: inherit;
+}
+
+.yt-video-thumb p,
+.yt-video-thumb .yt-video-title {
+    color: var(--color-text-secondary);
     text-decoration: none;
 }
 
@@ -1018,6 +1026,10 @@ body {
     cursor: pointer;
 }
 
+.project-card-link * {
+    text-decoration: none;
+}
+
 .project-card-link:hover {
     transform: translateY(-8px);
     border-color: var(--color-accent);
@@ -1026,6 +1038,11 @@ body {
 
 .project-card-link h3 {
     color: var(--color-text);
+    text-decoration: none;
+}
+
+.project-card-link p {
+    color: var(--color-text-secondary);
 }
 
 .project-cta {
@@ -1038,6 +1055,7 @@ body {
     font-weight: 600;
     color: var(--color-accent-light);
     transition: var(--transition);
+    text-decoration: none;
 }
 
 .project-card-link:hover .project-cta {
