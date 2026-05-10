@@ -65,7 +65,7 @@ document.head.appendChild(style);
 
 // Smooth scroll for anchor links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
+    anchor.addEventListener('click', function (e) {
         e.preventDefault();
         const target = document.querySelector(this.getAttribute('href'));
         if (target) {
@@ -115,3 +115,44 @@ window.addEventListener('scroll', () => {
         }
     });
 });
+
+// Typewriter Effect
+const typewriterText = document.querySelector('.typewriter-text');
+if (typewriterText) {
+    const phrases = ["Product Manager", "Content Creator", "Builder", "Storyteller"];
+    let phraseIndex = 0;
+    let letterIndex = 0;
+    let currentPhrase = "";
+    let isDeleting = false;
+
+    function type() {
+        currentPhrase = phrases[phraseIndex];
+
+        if (isDeleting) {
+            typewriterText.textContent = currentPhrase.substring(0, letterIndex - 1);
+            letterIndex--;
+        } else {
+            typewriterText.textContent = currentPhrase.substring(0, letterIndex + 1);
+            letterIndex++;
+        }
+
+        let typeSpeed = 100;
+        if (isDeleting) {
+            typeSpeed = 50; // faster deletion
+        }
+
+        if (!isDeleting && letterIndex === currentPhrase.length) {
+            typeSpeed = 2000; // pause at end of word
+            isDeleting = true;
+        } else if (isDeleting && letterIndex === 0) {
+            isDeleting = false;
+            phraseIndex = (phraseIndex + 1) % phrases.length;
+            typeSpeed = 500; // pause before typing new word
+        }
+
+        setTimeout(type, typeSpeed);
+    }
+
+    // Start the typing effect after a small delay
+    setTimeout(type, 1000);
+}

@@ -219,21 +219,41 @@ body {
     color: var(--color-accent);
 }
 
-/* Hero Visual Card */
+/* Hero Visual - Skills Graph */
 .hero-visual {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.hero-card {
-    background: var(--color-bg-card);
-    border: 1px solid var(--color-border);
-    border-radius: 16px;
+.skills-graph-container {
+    position: relative;
     width: 100%;
-    max-width: 400px;
+    max-width: 480px;
+    aspect-ratio: 1 / 1;
+    border-radius: 16px;
     overflow: hidden;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    background: radial-gradient(ellipse at center, rgba(99,102,241,0.06) 0%, transparent 70%), #0d0d10;
+    border: 1px solid var(--color-border);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+}
+
+.skills-graph-container canvas {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.graph-label {
+    position: absolute;
+    bottom: 14px;
+    right: 18px;
+    font-family: var(--font-display);
+    font-size: 0.7rem;
+    letter-spacing: 0.18em;
+    color: rgba(161, 161, 170, 0.4);
+    user-select: none;
+    pointer-events: none;
 }
 
 .card-header {
@@ -1094,3 +1114,18 @@ body {
     }
 }
 
+/* ===== Typewriter Animation ===== */
+.typewriter-cursor {
+    display: inline-block;
+    width: 3px;
+    height: 1.1em;
+    background-color: var(--color-accent);
+    margin-left: 4px;
+    vertical-align: text-bottom;
+    animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
